@@ -58,3 +58,52 @@ void display(Queue* q)
     }
     printf("\n");
 }
+int main()
+{
+    Queue q;
+    q.front=-1;
+    q.rear=-1;
+    q.size=0;
+
+    printf("\nQueue implementation using Stacks: \n");
+    printf("1. Enqueue\n");
+    printf("2. Dequeue\n");
+    printf("3. Peek\n");
+    printf("4. isEmpty\n");
+    printf("5. Print All\n");
+    printf("6. Exit\n");
+
+    int ch, n;
+    while (1)
+    {
+        printf("\nEnter the choice: ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("Enter the element to enqueue: ");
+            scanf("%d", &n);
+            enqueue(&q, n);
+            break;
+        case 2:
+            printf("Dequeued: %d\n", dequeue(&q));
+            break;
+        case 3:
+            peek(&q);
+            break;
+        case 4:
+            printf("Is empty: %s\n", isEmpty(&q) ? "True" : "False");
+            break;
+        case 5:
+            display(&q);
+            break;
+        case 6:
+            printf("Exiting...\n");
+            return 0;
+        default:
+            printf("Invalid choice!\n");
+        }
+    }
+    return 0;
+}
