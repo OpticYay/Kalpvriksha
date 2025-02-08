@@ -64,6 +64,19 @@ void delete(hash **map, int key)
         }
     }
 }
+void freemap(hash** map)
+{
+    for(int i=0;i<MAX;i++)
+    {
+        hash* temp=map[i];
+        while(temp)
+        {
+            hash* del=temp;
+            temp=temp->next;
+            free(del);
+        }
+    }
+}
 void display(hash **map)
 {
 
@@ -132,5 +145,6 @@ int main()
             printf("Invalid choice. Please try again.\n");
         }
     } while (choice != 5);
+    freemap(map);
     return 0;
 }
